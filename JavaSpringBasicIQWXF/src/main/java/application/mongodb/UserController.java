@@ -4,11 +4,8 @@ import java.util.List;
 
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import application.AtChatUser.User;
 
 @RestController
 @RequestMapping("/user")
@@ -20,15 +17,14 @@ public class UserController {
 		this.userRepository = userRepository;
 	}
 
-	@GetMapping("/all")
-	public List<User> getAll(){
-		List<User> users = this.userRepository.findAll();
-		return users;
-	}
+	@PostMapping("/createUser")
+	public boolean createUser(@RequestBody User user, MongoTemplate mt) {
+	    if(mt.find(query, entityClass)(user.getEmail) == false) {//email is unique
+	    	return true;
+	    } else {
+	    	return false;
+	    	}
+	    }
 	
-	@PostMapping("/all")
-	public boolean foo(@RequestBody User user) {
-		
-		return false;
-	}
+	//public 
 }
