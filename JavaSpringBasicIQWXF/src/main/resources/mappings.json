@@ -1,0 +1,44 @@
+{
+  "mongodb_uri": {
+    "searchPatterns": [
+      "cloudfoundry:$['compose-for-mongodb'][0].credentials.uri",
+      "env:service_mongodb:$.uri",
+      "file:/server/localdev-config.json:$.mongodb_uri"
+    ]
+  },
+  "mongodb_ca": {
+    "searchPatterns": [
+      "cloudfoundry:$['compose-for-mongodb'][0].credentials.ca_certificate_base64",
+      "env:service_mongdb:$.ca_certificate_base64",
+      "file:/server/localdev-config.json:$.mongodb_ca"
+    ]
+  },
+  "push_app_guid": {
+    "searchPatterns": [
+      "cloudfoundry:$['imfpush'][0].credentials.appGuid",
+      "env:service_push:$.appGuid",
+      "file:/server/localdev-config.json:$.push_app_guid"
+    ]
+  },
+  "push_app_secret": {
+    "searchPatterns": [
+      "cloudfoundry:$['imfpush'][0].credentials.appSecret",
+      "env:service_push:$.appSecret",
+      "file:/server/localdev-config.json:$.push_app_secret"
+    ]
+  },
+  "push_client_secret": {
+    "searchPatterns": [
+      "cloudfoundry:$['imfpush'][0].credentials.clientSecret",
+      "env:service_push:$.clientSecret",
+      "file:/server/localdev-config.json:$.push_client_secret"
+    ]
+  },
+  "push_url": {
+    "searchPatterns": [
+      "cloudfoundry:$['imfpush'][0].credentials.url",
+      "env:service_push:$.push_url",
+      "file:/server/localdev-config.json:$.push_url"
+    ]
+  }
+}

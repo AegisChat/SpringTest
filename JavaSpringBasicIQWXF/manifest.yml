@@ -1,0 +1,13 @@
+---
+applications:
+- instances: 1
+  timeout: 180
+  name: JavaSpringBasicIQWXF
+  buildpack: java_buildpack
+  path: ./target/JavaSpringBasicIQWXF-1.0-SNAPSHOT.jar
+  memory: 256M
+  domain: mybluemix.net
+  host: java-spring-basic-iqwxf
+  services:
+    - java-spring-basic-iqwxf-imfpush-1515343756274
+    - java-spring-basic-iqwxf-compose-fo-1515343717643
