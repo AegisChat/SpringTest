@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import application.AtChatUser.User;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -19,7 +21,7 @@ public class UserController {
 
 	@PostMapping("/createUser")
 	public boolean createUser(@RequestBody User user, MongoTemplate mt) {
-	    if(mt.find(query, entityClass)(user.getEmail) == false) {//email is unique
+	    if(mt.find(query, entityClass)(user.) == false) {//email is unique
 	    	return true;
 	    } else {
 	    	return false;
